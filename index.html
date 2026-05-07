@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#15172b" />
+    <title>Tic-Tac-Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-labelledby="game-title">
+      <section class="hero-card">
+        <div class="eyebrow">Classic strategy, modern feel</div>
+        <h1 id="game-title">Tic-Tac-Toe</h1>
+        <p>
+          A polished two-player board that works beautifully on desktop, tablet,
+          and mobile screens.
+        </p>
+
+        <div class="scoreboard" aria-label="Scoreboard">
+          <article class="score-card active" data-player-card="X">
+            <span class="marker marker-x">X</span>
+            <div>
+              <p>Player X</p>
+              <strong id="score-x">0</strong>
+            </div>
+          </article>
+          <article class="score-card" data-player-card="O">
+            <span class="marker marker-o">O</span>
+            <div>
+              <p>Player O</p>
+              <strong id="score-o">0</strong>
+            </div>
+          </article>
+          <article class="score-card">
+            <span class="marker marker-draw">=</span>
+            <div>
+              <p>Draws</p>
+              <strong id="score-draw">0</strong>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="game-card" aria-label="Tic-tac-toe game board">
+        <div class="status-panel" aria-live="polite">
+          <span id="turn-pill" class="turn-pill marker-x">X</span>
+          <div>
+            <p class="status-label">Current turn</p>
+            <h2 id="status-message">Player X, make your move</h2>
+          </div>
+        </div>
+
+        <div class="board" role="grid" aria-label="Tic-tac-toe board">
+          <button class="cell" data-cell="0" role="gridcell" aria-label="Top left cell"></button>
+          <button class="cell" data-cell="1" role="gridcell" aria-label="Top center cell"></button>
+          <button class="cell" data-cell="2" role="gridcell" aria-label="Top right cell"></button>
+          <button class="cell" data-cell="3" role="gridcell" aria-label="Middle left cell"></button>
+          <button class="cell" data-cell="4" role="gridcell" aria-label="Middle center cell"></button>
+          <button class="cell" data-cell="5" role="gridcell" aria-label="Middle right cell"></button>
+          <button class="cell" data-cell="6" role="gridcell" aria-label="Bottom left cell"></button>
+          <button class="cell" data-cell="7" role="gridcell" aria-label="Bottom center cell"></button>
+          <button class="cell" data-cell="8" role="gridcell" aria-label="Bottom right cell"></button>
+        </div>
+
+        <div class="actions">
+          <button id="new-round" class="primary-action" type="button">New round</button>
+          <button id="reset-game" class="secondary-action" type="button">Reset scores</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
