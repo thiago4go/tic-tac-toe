@@ -21,7 +21,6 @@ The web test evidence is organized as follows:
 - Local static server: `python3 -m http.server 8080`
 - Browser automation and screenshot capture: Playwright (Chromium)
 - Basic syntax validation:
-  - `python3 -m py_compile tic-tac-toe.py`
   - `node --check script.js`
 
 ## Test Process
