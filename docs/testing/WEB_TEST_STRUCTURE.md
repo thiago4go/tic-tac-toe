@@ -20,22 +20,35 @@ The web test evidence is organized as follows:
 
 - Local static server: `python3 -m http.server 8080`
 - Browser automation and screenshot capture: Playwright (Chromium)
+  - Install once in the repository root:
+    - `npm install --save-dev playwright`
+    - `npx playwright install chromium`
+  - Minimal manual launch against the local app:
+    - `npx playwright open --browser=chromium http://localhost:8080/`
 - Basic syntax validation:
   - `node --check script.js`
 
 ## Test Process
 
-1. Start local server from repository root.
-2. Open web app at `http://localhost:8080/`.
-3. Capture initial state screenshot.
-4. Play deterministic sequence to produce:
+1. Start local server from repository root:
+   - `python3 -m http.server 8080`
+2. Verify the app is reachable at `http://localhost:8080/`.
+3. If Playwright is not already installed, run:
+   - `npm install --save-dev playwright`
+   - `npx playwright install chromium`
+4. Use Playwright to open Chromium against the local app:
+   - `npx playwright open --browser=chromium http://localhost:8080/`
+5. Capture screenshots for the required evidence. At minimum, the following commands are reproducible examples for the initial state and can be repeated after setting up each later board state:
+   - `npx playwright screenshot --browser=chromium http://localhost:8080/ docs/testing/screenshots/01-initial.png`
+   - For later states (`02-midgame.png` through `06-reset-scores.png`), use the Playwright-opened browser window to perform the documented move sequence, then save a screenshot into `docs/testing/screenshots/` with the matching filename.
+6. Play deterministic sequence to produce:
    - a mid-game state,
    - a Player X win,
    - a new round reset,
    - a draw,
    - a score reset.
-5. Save screenshots to `docs/testing/screenshots/`.
-6. Verify game state messages and scoreboard values in each captured step.
+7. Save screenshots to `docs/testing/screenshots/`.
+8. Verify game state messages and scoreboard values in each captured step.
 
 ## Covered Checks
 
